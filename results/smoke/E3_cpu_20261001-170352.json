@@ -1,0 +1,179 @@
+{
+  "experiment": "E3",
+  "env": {
+    "device": "cpu",
+    "device_name": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "dtype": "fp32",
+    "torch": "2.14.1+xpu",
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "cpu_count": 22,
+    "git_commit": "unknown",
+    "power_mode": "unspecified",
+    "timestamp": "2026-10-01T17:03:49",
+    "copy_bandwidth_gbs": 34.94
+  },
+  "config": {
+    "experiment": "E3",
+    "target": "runs/tiny_smoke/model.pt",
+    "draft": null,
+    "drafts": "tiny_draft=runs/tiny_draft_smoke/model.pt",
+    "data_dir": "data/toy/shards",
+    "device": "cpu",
+    "dtype": "auto",
+    "runs": 3,
+    "warmup": 1,
+    "out": "results/smoke",
+    "power_mode": "unspecified",
+    "quick": true,
+    "prompt_len": 8,
+    "lengths": [
+      16,
+      32
+    ],
+    "naive_max": 10000,
+    "naive_runs": 3,
+    "batches": [
+      1,
+      2,
+      4
+    ],
+    "new_tokens": 48,
+    "ks": [
+      2,
+      4
+    ],
+    "temps": [
+      0.0,
+      1.0
+    ]
+  },
+  "rows": [
+    {
+      "kind": "baseline_cached",
+      "temperature": 0.0,
+      "tokens_per_s": 403.5091848774289,
+      "seconds": {
+        "median": 0.11895640000011554,
+        "p25": 0.0988332500000979,
+        "p75": 0.12064680000003136,
+        "min": 0.07871010000008027,
+        "max": 0.12233719999994719,
+        "n": 3
+      }
+    },
+    {
+      "kind": "speculative",
+      "draft": "tiny_draft",
+      "k": 2,
+      "temperature": 0.0,
+      "tokens_per_s": 623.0076733776863,
+      "seconds": {
+        "median": 0.07704560000001948,
+        "p25": 0.0752529000000095,
+        "p75": 0.11457529999995586,
+        "min": 0.07346019999999953,
+        "max": 0.15210499999989224,
+        "n": 3
+      },
+      "speedup_median": 1.5878544654064122,
+      "speedup_p25": 0.5174721409561556,
+      "speedup_p75": 1.619331284152729,
+      "acceptance_rate": 0.8823529411764706,
+      "mean_tokens_per_round": 2.6666666666666665,
+      "target_forwards_per_token": 0.3958333333333333,
+      "draft_forwards_per_token": 0.75,
+      "c": 0.6362009355941107
+    },
+    {
+      "kind": "speculative",
+      "draft": "tiny_draft",
+      "k": 4,
+      "temperature": 0.0,
+      "tokens_per_s": 547.8195071672839,
+      "seconds": {
+        "median": 0.08762010000009468,
+        "p25": 0.08400125000014214,
+        "p75": 0.09228015000007872,
+        "min": 0.08038240000018959,
+        "max": 0.09694020000006276,
+        "n": 3
+      },
+      "speedup_median": 1.396223012754094,
+      "speedup_p25": 0.8119448897364491,
+      "speedup_p75": 1.4798811680148263,
+      "acceptance_rate": 0.9487179487179487,
+      "mean_tokens_per_round": 4.363636363636363,
+      "target_forwards_per_token": 0.25,
+      "draft_forwards_per_token": 0.875,
+      "c": 0.6362009355941107
+    },
+    {
+      "kind": "baseline_cached",
+      "temperature": 1.0,
+      "tokens_per_s": 562.4428768947722,
+      "seconds": {
+        "median": 0.08534200000008241,
+        "p25": 0.08458565000000817,
+        "p75": 0.0918880500000796,
+        "min": 0.08382929999993394,
+        "max": 0.0984341000000768,
+        "n": 3
+      }
+    },
+    {
+      "kind": "speculative",
+      "draft": "tiny_draft",
+      "k": 2,
+      "temperature": 1.0,
+      "tokens_per_s": 499.17376342770064,
+      "seconds": {
+        "median": 0.09615889999986393,
+        "p25": 0.09313239999994494,
+        "p75": 0.09617104999983894,
+        "min": 0.09010590000002594,
+        "max": 0.09618319999981395,
+        "n": 3
+      },
+      "speedup_median": 0.8872859293540607,
+      "speedup_p25": 0.8717788993015994,
+      "speedup_p75": 1.0924268000214021,
+      "acceptance_rate": 0.9690721649484536,
+      "mean_tokens_per_round": 2.88,
+      "target_forwards_per_token": 0.3680555555555556,
+      "draft_forwards_per_token": 0.6875,
+      "c": 0.6362009355941107
+    },
+    {
+      "kind": "speculative",
+      "draft": "tiny_draft",
+      "k": 4,
+      "temperature": 1.0,
+      "tokens_per_s": 573.8290897886608,
+      "seconds": {
+        "median": 0.0836485999998331,
+        "p25": 0.08257144999981847,
+        "p75": 0.08624139999994895,
+        "min": 0.08149429999980384,
+        "max": 0.08883420000006481,
+        "n": 3
+      },
+      "speedup_median": 1.0286523106540668,
+      "speedup_p25": 0.9606885636390056,
+      "speedup_p75": 1.1767572918168767,
+      "acceptance_rate": 0.991304347826087,
+      "mean_tokens_per_round": 4.8,
+      "target_forwards_per_token": 0.22916666666666666,
+      "draft_forwards_per_token": 0.8055555555555556,
+      "c": 0.6362009355941107
+    }
+  ],
+  "target_step_seconds": 0.0012292500000512518,
+  "c_by_draft": {
+    "tiny_draft": 0.6362009355941107
+  },
+  "params": 192960,
+  "draft_params": {
+    "tiny_draft": 43168
+  }
+}

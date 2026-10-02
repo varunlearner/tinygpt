@@ -1,0 +1,22 @@
+# Same architecture as draft_4m, trained with KL distillation from the target (raises the acceptance rate).
+# Requires runs/target_28m/model.pt to exist first.
+name: draft_4m_distilled
+model:
+  vocab_size: 4096
+  d_model: 256
+  n_layers: 4
+  n_heads: 4
+  n_kv_heads: 4
+  mlp_hidden: 704
+  max_seq_len: 512
+train:
+  data_dir: data/shards
+  out_dir: runs/draft_4m_distilled
+  micro_batch_size: 64
+  grad_accum_steps: 2
+  epochs: 1.0
+  lr: 2.0e-3
+  warmup_steps: 300
+  ckpt_interval_steps: 1000
+  distill_teacher: runs/target_28m/model.pt
+  distill_alpha: 0.3          # loss = 0.3 * CE(hard labels) + 0.7 * KL(teacher || student)

@@ -1,0 +1,198 @@
+{
+  "experiment": "E2",
+  "env": {
+    "device": "xpu",
+    "device_name": "Intel(R) Arc(TM) Graphics",
+    "dtype": "fp16",
+    "torch": "2.14.1+xpu",
+    "python": "3.11.6",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "cpu_count": 22,
+    "git_commit": "unknown",
+    "power_mode": "plugged-in/best-performance",
+    "timestamp": "2026-10-03T04:21:56",
+    "copy_bandwidth_gbs": 84.58
+  },
+  "config": {
+    "experiment": "E2",
+    "target": "runs/target_28m/model.pt",
+    "draft": null,
+    "drafts": null,
+    "data_dir": "data/shards",
+    "device": "xpu",
+    "dtype": "auto",
+    "runs": 10,
+    "warmup": 3,
+    "out": "results",
+    "power_mode": "plugged-in/best-performance",
+    "quick": false,
+    "prompt_len": 16,
+    "lengths": [
+      32,
+      64,
+      128,
+      256,
+      480
+    ],
+    "naive_max": 10000,
+    "naive_runs": 5,
+    "batches": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "new_tokens": 128,
+    "ks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8
+    ],
+    "temps": [
+      0.0,
+      0.7,
+      1.0
+    ]
+  },
+  "rows": [
+    {
+      "batch": 1,
+      "new_tokens": 128,
+      "prompt_len": 16,
+      "seconds": {
+        "median": 1.4993529500061413,
+        "p25": 1.4820913749972533,
+        "p75": 1.5035713500001293,
+        "min": 1.459009900005185,
+        "max": 1.5216471000021556,
+        "n": 10
+      },
+      "tokens_per_s": 85.37015917397949,
+      "steps_per_s": 85.37015917397949,
+      "peak_memory_bytes": 66264576,
+      "kv_cache_bytes": 8388608
+    },
+    {
+      "batch": 2,
+      "new_tokens": 128,
+      "prompt_len": 16,
+      "seconds": {
+        "median": 1.4956312499998603,
+        "p25": 1.483911649997026,
+        "p75": 1.5088728999944578,
+        "min": 1.4694307000027038,
+        "max": 1.5387749999936204,
+        "n": 10
+      },
+      "tokens_per_s": 171.16518526877792,
+      "steps_per_s": 85.58259263438896,
+      "peak_memory_bytes": 82855424,
+      "kv_cache_bytes": 16777216
+    },
+    {
+      "batch": 4,
+      "new_tokens": 128,
+      "prompt_len": 16,
+      "seconds": {
+        "median": 1.5503823500039289,
+        "p25": 1.5381968750043598,
+        "p75": 1.5536494249936368,
+        "min": 1.51720309999655,
+        "max": 1.5750505000032717,
+        "n": 10
+      },
+      "tokens_per_s": 330.24111761766545,
+      "steps_per_s": 82.56027940441636,
+      "peak_memory_bytes": 106972672,
+      "kv_cache_bytes": 33554432
+    },
+    {
+      "batch": 8,
+      "new_tokens": 128,
+      "prompt_len": 16,
+      "seconds": {
+        "median": 1.50931314999616,
+        "p25": 1.506529900001624,
+        "p75": 1.5159586999980093,
+        "min": 1.4840445000008913,
+        "max": 1.535292999993544,
+        "n": 10
+      },
+      "tokens_per_s": 678.4543022119732,
+      "steps_per_s": 84.80678777649665,
+      "peak_memory_bytes": 157304832,
+      "kv_cache_bytes": 67108864
+    },
+    {
+      "batch": 16,
+      "new_tokens": 128,
+      "prompt_len": 16,
+      "seconds": {
+        "median": 1.6268607999954838,
+        "p25": 1.5276848499961488,
+        "p75": 2.1458754999912344,
+        "min": 1.486251499998616,
+        "max": 2.340071299986448,
+        "n": 10
+      },
+      "tokens_per_s": 1258.866154993522,
+      "steps_per_s": 78.67913468709513,
+      "peak_memory_bytes": 257969152,
+      "kv_cache_bytes": 134217728
+    },
+    {
+      "batch": 32,
+      "new_tokens": 128,
+      "prompt_len": 16,
+      "seconds": {
+        "median": 2.0895754499942996,
+        "p25": 1.8982213999952364,
+        "p75": 2.239773375004006,
+        "min": 1.6786909000074957,
+        "max": 2.773692699993262,
+        "n": 10
+      },
+      "tokens_per_s": 1960.2067970367732,
+      "steps_per_s": 61.25646240739916,
+      "peak_memory_bytes": 459297792,
+      "kv_cache_bytes": 268435456
+    },
+    {
+      "batch": 64,
+      "new_tokens": 128,
+      "prompt_len": 16,
+      "seconds": {
+        "median": 2.472777299997688,
+        "p25": 2.4360128750013246,
+        "p75": 2.4818822250090307,
+        "min": 2.3306059000024106,
+        "max": 2.524612499997602,
+        "n": 10
+      },
+      "tokens_per_s": 3312.874151670537,
+      "steps_per_s": 51.76365861985214,
+      "peak_memory_bytes": 861955072,
+      "kv_cache_bytes": 536870912
+    }
+  ],
+  "params": 27795968,
+  "model_config": {
+    "vocab_size": 4096,
+    "d_model": 512,
+    "n_layers": 8,
+    "n_heads": 8,
+    "n_kv_heads": 8,
+    "mlp_hidden": 1408,
+    "max_seq_len": 512,
+    "rope_theta": 10000.0,
+    "norm_eps": 1e-05,
+    "tie_embeddings": true
+  }
+}

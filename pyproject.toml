@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tinygpt"
+version = "0.1.0"
+description = "Small GPT from scratch on TinyStories with KV caching and speculative decoding"
+requires-python = ">=3.10"
+dependencies = ["numpy", "regex", "pyyaml", "matplotlib"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+export = ["transformers", "tokenizers", "safetensors"]
+openvino = ["optimum[openvino]"]
+
+[tool.setuptools.packages.find]
+include = ["tinygpt*", "bench*", "export*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::UserWarning"]

@@ -1,0 +1,9 @@
+{
+  "ckpt": "runs/target_28m/model.pt",
+  "params": 27795968,
+  "val_tokens_evaluated": 5577728,
+  "dtype": "fp16",
+  "val_loss_nats_per_token": 1.1388988071173425,
+  "perplexity": 3.123327085220945,
+  "bits_per_byte": 0.4151553880633004
+}

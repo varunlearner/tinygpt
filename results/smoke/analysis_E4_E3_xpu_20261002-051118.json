@@ -1,0 +1,58 @@
+{
+  "source": "E3_xpu_20261002-051118.json",
+  "env": {
+    "device": "xpu",
+    "device_name": "Intel(R) Arc(TM) Graphics",
+    "dtype": "fp16",
+    "torch": "2.14.1+xpu",
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "cpu_count": 22,
+    "git_commit": "unknown",
+    "power_mode": "unspecified",
+    "timestamp": "2026-10-02T05:10:44",
+    "copy_bandwidth_gbs": 88.26
+  },
+  "rows": [
+    {
+      "draft": "tiny_draft",
+      "k": 2,
+      "temperature": 0.0,
+      "alpha": 0.96875,
+      "c": 0.6892908021111583,
+      "predicted_speedup": 1.2222521848059635,
+      "measured_speedup": 0.9641924918914204,
+      "residual_pct": -21.113457281772906
+    },
+    {
+      "draft": "tiny_draft",
+      "k": 4,
+      "temperature": 0.0,
+      "alpha": 0.9736842105263158,
+      "c": 0.6892908021111583,
+      "predicted_speedup": 1.2625687009783861,
+      "measured_speedup": 1.0293474187436438,
+      "residual_pct": -18.47196766829522
+    },
+    {
+      "draft": "tiny_draft",
+      "k": 2,
+      "temperature": 1.0,
+      "alpha": 0.9393939393939394,
+      "c": 0.6892908021111583,
+      "predicted_speedup": 1.1863603534790712,
+      "measured_speedup": 0.9037903380125588,
+      "residual_pct": -23.81822813261243
+    },
+    {
+      "draft": "tiny_draft",
+      "k": 4,
+      "temperature": 1.0,
+      "alpha": 0.9572649572649573,
+      "c": 0.6892908021111583,
+      "predicted_speedup": 1.2218062565987435,
+      "measured_speedup": 0.4443152790534106,
+      "residual_pct": -63.634555261626126
+    }
+  ]
+}

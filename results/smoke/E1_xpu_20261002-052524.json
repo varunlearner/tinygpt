@@ -1,0 +1,130 @@
+{
+  "experiment": "E1",
+  "env": {
+    "device": "xpu",
+    "device_name": "Intel(R) Arc(TM) Graphics",
+    "dtype": "fp16",
+    "torch": "2.14.1+xpu",
+    "python": "3.11.6",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "cpu_count": 22,
+    "git_commit": "unknown",
+    "power_mode": "unspecified",
+    "timestamp": "2026-10-02T05:25:20",
+    "copy_bandwidth_gbs": 86.12
+  },
+  "config": {
+    "experiment": "E1",
+    "target": "runs/tiny_smoke/model.pt",
+    "draft": null,
+    "drafts": null,
+    "data_dir": "data/toy/shards",
+    "device": "xpu",
+    "dtype": "auto",
+    "runs": 3,
+    "warmup": 1,
+    "out": "results/smoke",
+    "power_mode": "unspecified",
+    "quick": true,
+    "prompt_len": 8,
+    "lengths": [
+      16,
+      32
+    ],
+    "naive_max": 10000,
+    "naive_runs": 3,
+    "batches": [
+      1,
+      2,
+      4
+    ],
+    "new_tokens": 32,
+    "ks": [
+      2,
+      4
+    ],
+    "temps": [
+      0.0,
+      1.0
+    ]
+  },
+  "rows": [
+    {
+      "new_tokens": 16,
+      "prompt_len": 8,
+      "batch": 1,
+      "naive": {
+        "seconds": {
+          "median": 0.07604999999989559,
+          "p25": 0.07579160000000229,
+          "p75": 0.07719029999998384,
+          "min": 0.07553320000010899,
+          "max": 0.07833060000007208,
+          "n": 3
+        },
+        "tokens_per_s": 210.38790269588384
+      },
+      "cached": {
+        "seconds": {
+          "median": 0.0825300999999854,
+          "p25": 0.07810234999999466,
+          "p75": 0.08358734999990247,
+          "min": 0.07367460000000392,
+          "max": 0.08464459999981955,
+          "n": 3
+        },
+        "tokens_per_s": 193.86866125211083
+      },
+      "speedup": 0.9214819805126742
+    },
+    {
+      "new_tokens": 32,
+      "prompt_len": 8,
+      "batch": 1,
+      "naive": {
+        "seconds": {
+          "median": 0.1514650999999958,
+          "p25": 0.15075899999999365,
+          "p75": 0.15454135000004499,
+          "min": 0.1500528999999915,
+          "max": 0.15761760000009417,
+          "n": 3
+        },
+        "tokens_per_s": 211.26979086271945
+      },
+      "cached": {
+        "seconds": {
+          "median": 0.1614615999999387,
+          "p25": 0.16045439999993505,
+          "p75": 0.16277754999998706,
+          "min": 0.1594471999999314,
+          "max": 0.16409350000003542,
+          "n": 3
+        },
+        "tokens_per_s": 198.18953856528208
+      },
+      "speedup": 0.9380874461794836
+    }
+  ],
+  "ttft_seconds": {
+    "median": 0.006715100000064922,
+    "p25": 0.006512150000048678,
+    "p75": 0.007204800000067735,
+    "min": 0.006309200000032433,
+    "max": 0.007694500000070548,
+    "n": 3
+  },
+  "params": 192960,
+  "model_config": {
+    "vocab_size": 512,
+    "d_model": 64,
+    "n_layers": 3,
+    "n_heads": 4,
+    "n_kv_heads": 4,
+    "mlp_hidden": 192,
+    "max_seq_len": 128,
+    "rope_theta": 10000.0,
+    "norm_eps": 1e-05,
+    "tie_embeddings": true
+  }
+}

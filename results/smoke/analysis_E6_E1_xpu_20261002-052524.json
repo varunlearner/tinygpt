@@ -1,0 +1,37 @@
+{
+  "source": "E1_xpu_20261002-052524.json",
+  "experiment": "E1",
+  "env": {
+    "device": "xpu",
+    "device_name": "Intel(R) Arc(TM) Graphics",
+    "dtype": "fp16",
+    "torch": "2.14.1+xpu",
+    "python": "3.11.6",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "cpu_count": 22,
+    "git_commit": "unknown",
+    "power_mode": "unspecified",
+    "timestamp": "2026-10-02T05:25:20",
+    "copy_bandwidth_gbs": 86.12
+  },
+  "rows": [
+    {
+      "batch": 1,
+      "new_tokens": 16,
+      "steps_per_s": 193.86866125211083,
+      "tokens_per_s": 193.86866125211083,
+      "bytes_per_step_MB": 0.398208,
+      "mbu_pct": 0.0896424197165357,
+      "bandwidth_ceiling_tokens_per_s": 216268.88460302155
+    },
+    {
+      "batch": 1,
+      "new_tokens": 32,
+      "steps_per_s": 198.18953856528208,
+      "tokens_per_s": 198.18953856528208,
+      "bytes_per_step_MB": 0.404352,
+      "mbu_pct": 0.09305426880857982,
+      "bandwidth_ceiling_tokens_per_s": 212982.74770496992
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# ~27.8M parameter target model. ~64k tokens/step, 1 epoch of TinyStories-V2 (~0.5-0.7B tokens).
+name: target_28m
+model:
+  vocab_size: 4096
+  d_model: 512
+  n_layers: 8
+  n_heads: 8
+  n_kv_heads: 8
+  mlp_hidden: 1408
+  max_seq_len: 512
+train:
+  data_dir: data/shards
+  out_dir: runs/target_28m
+  micro_batch_size: 32       # x 512 ctx x 4 accum = 65,536 tokens per optimizer step
+  grad_accum_steps: 4
+  epochs: 1.0
+  lr: 1.0e-3
+  min_lr_ratio: 0.1
+  warmup_steps: 500
+  weight_decay: 0.1
+  eval_interval: 500
+  ckpt_interval_steps: 500
+  ckpt_interval_minutes: 15

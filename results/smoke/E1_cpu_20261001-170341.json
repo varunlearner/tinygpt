@@ -1,0 +1,130 @@
+{
+  "experiment": "E1",
+  "env": {
+    "device": "cpu",
+    "device_name": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "dtype": "fp32",
+    "torch": "2.14.1+xpu",
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "cpu_count": 22,
+    "git_commit": "unknown",
+    "power_mode": "unspecified",
+    "timestamp": "2026-10-01T17:03:40",
+    "copy_bandwidth_gbs": 34.72
+  },
+  "config": {
+    "experiment": "E1",
+    "target": "runs/tiny_smoke/model.pt",
+    "draft": null,
+    "drafts": null,
+    "data_dir": "data/toy/shards",
+    "device": "cpu",
+    "dtype": "auto",
+    "runs": 3,
+    "warmup": 1,
+    "out": "results/smoke",
+    "power_mode": "unspecified",
+    "quick": true,
+    "prompt_len": 8,
+    "lengths": [
+      16,
+      32
+    ],
+    "naive_max": 10000,
+    "naive_runs": 3,
+    "batches": [
+      1,
+      2,
+      4
+    ],
+    "new_tokens": 32,
+    "ks": [
+      2,
+      4
+    ],
+    "temps": [
+      0.0,
+      1.0
+    ]
+  },
+  "rows": [
+    {
+      "new_tokens": 16,
+      "prompt_len": 8,
+      "batch": 1,
+      "naive": {
+        "seconds": {
+          "median": 0.047005999999782944,
+          "p25": 0.04180264999990868,
+          "p75": 0.06338659999983065,
+          "min": 0.03659930000003442,
+          "max": 0.07976719999987836,
+          "n": 3
+        },
+        "tokens_per_s": 340.3820788851185
+      },
+      "cached": {
+        "seconds": {
+          "median": 0.03487399999994523,
+          "p25": 0.03242505000002893,
+          "p75": 0.03542504999995799,
+          "min": 0.029976100000112638,
+          "max": 0.035976099999970756,
+          "n": 3
+        },
+        "tokens_per_s": 458.7945174062376
+      },
+      "speedup": 1.3478809428186262
+    },
+    {
+      "new_tokens": 32,
+      "prompt_len": 8,
+      "batch": 1,
+      "naive": {
+        "seconds": {
+          "median": 0.06739190000007511,
+          "p25": 0.06565595000006397,
+          "p75": 0.06974460000003546,
+          "min": 0.06392000000005282,
+          "max": 0.07209729999999581,
+          "n": 3
+        },
+        "tokens_per_s": 474.8345127524871
+      },
+      "cached": {
+        "seconds": {
+          "median": 0.07976910000002135,
+          "p25": 0.07156110000005356,
+          "p75": 0.0830630000000383,
+          "min": 0.06335310000008576,
+          "max": 0.08635690000005525,
+          "n": 3
+        },
+        "tokens_per_s": 401.1578418208484
+      },
+      "speedup": 0.8448371612573925
+    }
+  ],
+  "ttft_seconds": {
+    "median": 0.0031161000001702632,
+    "p25": 0.003113200000143479,
+    "p75": 0.004250500000125612,
+    "min": 0.0031103000001166947,
+    "max": 0.005384900000080961,
+    "n": 3
+  },
+  "params": 192960,
+  "model_config": {
+    "vocab_size": 512,
+    "d_model": 64,
+    "n_layers": 3,
+    "n_heads": 4,
+    "n_kv_heads": 4,
+    "mlp_hidden": 192,
+    "max_seq_len": 128,
+    "rope_theta": 10000.0,
+    "norm_eps": 1e-05,
+    "tie_embeddings": true
+  }
+}

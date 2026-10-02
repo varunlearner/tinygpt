@@ -1,0 +1,11 @@
+# PyTorch is NOT listed here on purpose: install the build that matches your machine.
+#   Kaggle / Colab : already installed (CUDA build)
+#   Intel Arc iGPU : pip install torch --index-url https://download.pytorch.org/whl/xpu
+#   CPU only       : pip install torch --index-url https://download.pytorch.org/whl/cpu
+numpy
+regex
+pyyaml
+matplotlib
+pytest
+# optional (export + parity checks):  pip install transformers tokenizers safetensors
+# optional (OpenVINO):               pip install "optimum[openvino]"

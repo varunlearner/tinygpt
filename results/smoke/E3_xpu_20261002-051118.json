@@ -1,0 +1,179 @@
+{
+  "experiment": "E3",
+  "env": {
+    "device": "xpu",
+    "device_name": "Intel(R) Arc(TM) Graphics",
+    "dtype": "fp16",
+    "torch": "2.14.1+xpu",
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "cpu_count": 22,
+    "git_commit": "unknown",
+    "power_mode": "unspecified",
+    "timestamp": "2026-10-02T05:10:44",
+    "copy_bandwidth_gbs": 88.26
+  },
+  "config": {
+    "experiment": "E3",
+    "target": "runs/tiny_smoke/model.pt",
+    "draft": null,
+    "drafts": "tiny_draft=runs/tiny_draft_smoke/model.pt",
+    "data_dir": "data/toy/shards",
+    "device": "xpu",
+    "dtype": "auto",
+    "runs": 3,
+    "warmup": 1,
+    "out": "results/smoke",
+    "power_mode": "unspecified",
+    "quick": true,
+    "prompt_len": 8,
+    "lengths": [
+      16,
+      32
+    ],
+    "naive_max": 10000,
+    "naive_runs": 3,
+    "batches": [
+      1,
+      2,
+      4
+    ],
+    "new_tokens": 48,
+    "ks": [
+      2,
+      4
+    ],
+    "temps": [
+      0.0,
+      1.0
+    ]
+  },
+  "rows": [
+    {
+      "kind": "baseline_cached",
+      "temperature": 0.0,
+      "tokens_per_s": 196.7951903255409,
+      "seconds": {
+        "median": 0.24390840000000935,
+        "p25": 0.23880350000001727,
+        "p75": 0.24925705000003973,
+        "min": 0.23369860000002518,
+        "max": 0.2546057000000701,
+        "n": 3
+      }
+    },
+    {
+      "kind": "speculative",
+      "draft": "tiny_draft",
+      "k": 2,
+      "temperature": 0.0,
+      "tokens_per_s": 189.74844495222965,
+      "seconds": {
+        "median": 0.2529664999999568,
+        "p25": 0.2512810499999887,
+        "p75": 0.2558227000000102,
+        "min": 0.24959560000002057,
+        "max": 0.25867890000006355,
+        "n": 3
+      },
+      "speedup_median": 0.9641924918914204,
+      "speedup_p25": 0.903431242362511,
+      "speedup_p75": 1.0200728698745054,
+      "acceptance_rate": 0.96875,
+      "mean_tokens_per_round": 2.823529411764706,
+      "target_forwards_per_token": 0.375,
+      "draft_forwards_per_token": 0.6666666666666666,
+      "c": 0.6892908021111583
+    },
+    {
+      "kind": "speculative",
+      "draft": "tiny_draft",
+      "k": 4,
+      "temperature": 0.0,
+      "tokens_per_s": 196.5990011131982,
+      "seconds": {
+        "median": 0.2441518000000542,
+        "p25": 0.24055310000005647,
+        "p75": 0.25302500000003647,
+        "min": 0.23695440000005874,
+        "max": 0.26189820000001873,
+        "n": 3
+      },
+      "speedup_median": 1.0293474187436438,
+      "speedup_p25": 0.8923261022794676,
+      "speedup_p75": 1.042817214536258,
+      "acceptance_rate": 0.9736842105263158,
+      "mean_tokens_per_round": 4.363636363636363,
+      "target_forwards_per_token": 0.25,
+      "draft_forwards_per_token": 0.8541666666666666,
+      "c": 0.6892908021111583
+    },
+    {
+      "kind": "baseline_cached",
+      "temperature": 1.0,
+      "tokens_per_s": 201.76909460735803,
+      "seconds": {
+        "median": 0.23789570000008098,
+        "p25": 0.237261100000012,
+        "p75": 0.23937240000003612,
+        "min": 0.236626499999943,
+        "max": 0.24084909999999127,
+        "n": 3
+      }
+    },
+    {
+      "kind": "speculative",
+      "draft": "tiny_draft",
+      "k": 2,
+      "temperature": 1.0,
+      "tokens_per_s": 183.3350711970691,
+      "seconds": {
+        "median": 0.2618156999999428,
+        "p25": 0.24948874999995496,
+        "p75": 2.1489454000000023,
+        "min": 0.23716179999996712,
+        "max": 4.036075100000062,
+        "n": 3
+      },
+      "speedup_median": 0.9037903380125588,
+      "speedup_p25": 0.05894233732174045,
+      "speedup_p75": 1.0155476134859183,
+      "acceptance_rate": 0.9393939393939394,
+      "mean_tokens_per_round": 2.823529411764706,
+      "target_forwards_per_token": 0.375,
+      "draft_forwards_per_token": 0.7083333333333334,
+      "c": 0.6892908021111583
+    },
+    {
+      "kind": "speculative",
+      "draft": "tiny_draft",
+      "k": 4,
+      "temperature": 1.0,
+      "tokens_per_s": 90.12994484797285,
+      "seconds": {
+        "median": 0.5325644000000693,
+        "p25": 0.4273204000000419,
+        "p75": 1.3709296500000505,
+        "min": 0.3220764000000145,
+        "max": 2.2092949000000317,
+        "n": 3
+      },
+      "speedup_median": 0.4443152790534106,
+      "speedup_p25": 0.10901627483048452,
+      "speedup_p75": 0.7386312688544404,
+      "acceptance_rate": 0.9572649572649573,
+      "mean_tokens_per_round": 4.5,
+      "target_forwards_per_token": 0.24305555555555555,
+      "draft_forwards_per_token": 0.8472222222222222,
+      "c": 0.6892908021111583
+    }
+  ],
+  "target_step_seconds": 0.004036250000012842,
+  "c_by_draft": {
+    "tiny_draft": 0.6892908021111583
+  },
+  "params": 192960,
+  "draft_params": {
+    "tiny_draft": 43168
+  }
+}

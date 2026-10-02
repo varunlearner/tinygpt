@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Data
+data/raw/
+data/shards/
+data/tok/
+data/toy/
+
+# Training outputs / checkpoints
+runs/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+
+# Exported models
+export/hf/
+export/ov/
+
+# Experiment / logging
+wandb/
+logs/
+
+# OS
+.DS_Store
+Thumbs.db

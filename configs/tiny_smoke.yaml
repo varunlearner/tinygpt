@@ -1,0 +1,23 @@
+# Tiny CPU-friendly config used by `make smoke` and the tests. NOT a real model.
+name: tiny_smoke
+model:
+  vocab_size: 512
+  d_model: 64
+  n_layers: 3
+  n_heads: 4
+  n_kv_heads: 4
+  mlp_hidden: 192
+  max_seq_len: 128
+train:
+  data_dir: data/toy/shards
+  out_dir: runs/tiny_smoke
+  tokenizer: data/toy/tokenizer.json
+  micro_batch_size: 16
+  grad_accum_steps: 1
+  max_steps: 200
+  lr: 3.0e-3
+  warmup_steps: 20
+  eval_interval: 100
+  eval_batches: 10
+  log_interval: 20
+  ckpt_interval_steps: 100

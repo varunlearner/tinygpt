@@ -1,0 +1,18 @@
+# GQA ablation: 8 query heads share 2 KV heads (4x smaller KV cache, ~24.6M params).
+name: target_28m_gqa
+model:
+  vocab_size: 4096
+  d_model: 512
+  n_layers: 8
+  n_heads: 8
+  n_kv_heads: 2
+  mlp_hidden: 1408
+  max_seq_len: 512
+train:
+  data_dir: data/shards
+  out_dir: runs/target_28m_gqa
+  micro_batch_size: 32
+  grad_accum_steps: 4
+  epochs: 1.0
+  lr: 1.0e-3
+  warmup_steps: 500

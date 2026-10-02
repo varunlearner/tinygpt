@@ -1,0 +1,9 @@
+{
+  "ckpt": "runs/tiny_smoke/model.pt",
+  "params": 192960,
+  "val_tokens_evaluated": 24320,
+  "dtype": "fp32",
+  "val_loss_nats_per_token": 0.36925941266511614,
+  "perplexity": 1.4466628376646538,
+  "bits_per_byte": 0.1407968393220427
+}

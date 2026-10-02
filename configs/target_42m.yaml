@@ -1,0 +1,18 @@
+# Stretch: ~42.3M parameters (d=640, 8 layers). If T4 memory is tight lower micro_batch_size to 16 and set grad_accum_steps: 8.
+name: target_42m
+model:
+  vocab_size: 4096
+  d_model: 640
+  n_layers: 8
+  n_heads: 10
+  n_kv_heads: 10
+  mlp_hidden: 1728
+  max_seq_len: 512
+train:
+  data_dir: data/shards
+  out_dir: runs/target_42m
+  micro_batch_size: 32
+  grad_accum_steps: 4
+  epochs: 1.0
+  lr: 8.0e-4
+  warmup_steps: 500

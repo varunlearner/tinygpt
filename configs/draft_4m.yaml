@@ -1,0 +1,21 @@
+# ~4.3M parameter draft (4 layers, d=256). Same tokenizer/data as the target.
+name: draft_4m
+model:
+  vocab_size: 4096
+  d_model: 256
+  n_layers: 4
+  n_heads: 4
+  n_kv_heads: 4
+  mlp_hidden: 704
+  max_seq_len: 512
+train:
+  data_dir: data/shards
+  out_dir: runs/draft_4m
+  micro_batch_size: 64
+  grad_accum_steps: 2
+  epochs: 1.0
+  lr: 2.0e-3
+  min_lr_ratio: 0.1
+  warmup_steps: 300
+  eval_interval: 500
+  ckpt_interval_steps: 1000

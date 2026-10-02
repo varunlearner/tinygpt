@@ -1,0 +1,22 @@
+# Tiny draft model for the smoke test (same vocab as tiny_smoke).
+name: tiny_draft_smoke
+model:
+  vocab_size: 512
+  d_model: 32
+  n_layers: 2
+  n_heads: 2
+  n_kv_heads: 2
+  mlp_hidden: 96
+  max_seq_len: 128
+train:
+  data_dir: data/toy/shards
+  out_dir: runs/tiny_draft_smoke
+  tokenizer: data/toy/tokenizer.json
+  micro_batch_size: 16
+  grad_accum_steps: 1
+  max_steps: 200
+  lr: 4.0e-3
+  warmup_steps: 20
+  eval_interval: 100
+  eval_batches: 10
+  ckpt_interval_steps: 100
