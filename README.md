@@ -10,6 +10,11 @@ The main model has **27.80 million parameters** and was trained on the TinyStori
 
 ---
 
+## System architecture
+
+![TinyGPT system architecture](docs/assets/tinygpt-architecture.png)
+
+[View editable SVG source](docs/assets/tinygpt-architecture.svg)
 ## Highlights
 
 - Custom byte-level BPE tokenizer with a vocabulary size of **4,096**.
@@ -334,18 +339,18 @@ Add the project's chosen license here before publishing or redistributing the re
 
 ## Benchmark visualizations
 
-### E1 — KV-cache performance
+### E1 ï¿½ KV-cache performance
 
 ![E1 KV-cache benchmark](results/plots/E1_xpu_20261112-030751.png)
 
-### E2 — Batch scaling
+### E2 ï¿½ Batch scaling
 
 ![E2 batch scaling benchmark](results/plots/E2_xpu_20261112-031112.png)
 
-### E3 — Speculative decoding
+### E3 ï¿½ Speculative decoding
 
 ![E3 speculative decoding benchmark](results/plots/E3_xpu_20261113-134807.png)
 
-### E4 — Theoretical vs measured speedup
+### E4 ï¿½ Theoretical vs measured speedup
 
 ![E4 analysis](results/plots/analysis_E4_E3_xpu_20261113-134807.png)

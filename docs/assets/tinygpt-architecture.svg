@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1320" viewBox="0 0 1600 1320" role="img" aria-labelledby="title desc">
+  <title id="title">TinyGPT system architecture</title>
+  <desc id="desc">Data preparation, target and draft model training, inference optimization, and evaluation flow for TinyGPT.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7f9ff"/><stop offset="1" stop-color="#eef3fb"/></linearGradient>
+    <linearGradient id="target" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9f1ff"/><stop offset="1" stop-color="#dbe8ff"/></linearGradient>
+    <linearGradient id="draft" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3edff"/><stop offset="1" stop-color="#e9ddff"/></linearGradient>
+    <linearGradient id="infer" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f8f2"/><stop offset="1" stop-color="#d9f1e8"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#263653" flood-opacity=".09"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#71819b"/></marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#4778c7"/></marker>
+    <style>
+      .title{font:700 42px Inter,Segoe UI,Arial,sans-serif;fill:#17243a}
+      .subtitle{font:400 18px Inter,Segoe UI,Arial,sans-serif;fill:#61708a}
+      .section{font:700 17px Inter,Segoe UI,Arial,sans-serif;letter-spacing:1.8px;fill:#50617b}
+      .cardTitle{font:700 22px Inter,Segoe UI,Arial,sans-serif;fill:#1c2b43}
+      .body{font:400 17px Inter,Segoe UI,Arial,sans-serif;fill:#50617b}
+      .small{font:400 14px Inter,Segoe UI,Arial,sans-serif;fill:#66758e}
+      .pill{font:700 13px Inter,Segoe UI,Arial,sans-serif;letter-spacing:.5px}
+      .number{font:700 15px Inter,Segoe UI,Arial,sans-serif;fill:#fff}
+      .line{stroke:#8290a6;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .lineBlue{stroke:#4778c7;stroke-width:3.5;fill:none;marker-end:url(#arrowBlue)}
+    </style>
+  </defs>
+  <rect width="1600" height="1320" fill="url(#bg)"/>
+  <circle cx="1450" cy="70" r="180" fill="#dce8fa" opacity=".35"/>
+  <circle cx="100" cy="1240" r="210" fill="#dff1eb" opacity=".35"/>
+
+  <text x="80" y="78" class="title">TinyGPT — System Architecture</text>
+  <text x="82" y="116" class="subtitle">From TinyStories data preparation to model training, optimized inference, and measured evaluation</text>
+  <rect x="1320" y="52" width="200" height="38" rx="19" fill="#e4ecfa"/>
+  <text x="1420" y="76" text-anchor="middle" class="pill" fill="#3f66a5">27.80M TARGET MODEL</text>
+
+  <!-- DATA -->
+  <rect x="70" y="150" width="1460" height="215" rx="24" fill="#ffffff" stroke="#e0e7f1" filter="url(#shadow)"/>
+  <circle cx="108" cy="188" r="16" fill="#536f9e"/><text x="108" y="193" text-anchor="middle" class="number">1</text>
+  <text x="138" y="194" class="section">DATA PREPARATION</text>
+
+  <rect x="110" y="220" width="370" height="112" rx="17" fill="#f8faff" stroke="#d8e2f0" stroke-width="1.5"/>
+  <rect x="130" y="239" width="42" height="42" rx="11" fill="#e5edfa"/>
+  <path d="M141 249 h20 v22 h-20 z M146 245 h20 v22" stroke="#5274aa" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <text x="190" y="256" class="cardTitle">TinyStories</text>
+  <text x="190" y="283" class="body">Text dataset</text>
+  <text x="130" y="313" class="small">552.5M train tokens · 5.58M validation tokens</text>
+
+  <path d="M490 276 H570" class="line"/>
+
+  <rect x="590" y="220" width="390" height="112" rx="17" fill="#f8faff" stroke="#d8e2f0" stroke-width="1.5"/>
+  <rect x="610" y="239" width="42" height="42" rx="11" fill="#e8eefe"/>
+  <path d="M620 249 h22 M620 258 h22 M620 267 h15" stroke="#5274aa" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="670" y="256" class="cardTitle">Custom byte-level BPE</text>
+  <text x="670" y="283" class="body">Tokenizer · vocabulary 4,096</text>
+  <text x="610" y="313" class="small">Encodes text into model token IDs</text>
+
+  <path d="M990 276 H1070" class="line"/>
+
+  <rect x="1090" y="220" width="390" height="112" rx="17" fill="#f8faff" stroke="#d8e2f0" stroke-width="1.5"/>
+  <rect x="1110" y="239" width="42" height="42" rx="11" fill="#e4f4ee"/>
+  <path d="M1121 247 h20 v26 h-20 z M1126 253 h10 M1126 260 h10 M1126 267 h7" stroke="#43866d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="1170" y="256" class="cardTitle">Token shards</text>
+  <text x="1170" y="283" class="body">train.bin · val.bin · meta.json</text>
+  <text x="1110" y="313" class="small">Prepared inputs for training and evaluation</text>
+
+  <!-- TRAINING -->
+  <rect x="70" y="395" width="1460" height="355" rx="24" fill="#ffffff" stroke="#e0e7f1" filter="url(#shadow)"/>
+  <circle cx="108" cy="433" r="16" fill="#536f9e"/><text x="108" y="438" text-anchor="middle" class="number">2</text>
+  <text x="138" y="439" class="section">MODEL TRAINING</text>
+  <text x="1480" y="438" text-anchor="end" class="small">Shared tokenized dataset → target and draft models</text>
+
+  <rect x="110" y="500" width="300" height="190" rx="18" fill="#f8faff" stroke="#d8e2f0" stroke-width="1.5"/>
+  <text x="138" y="540" class="cardTitle">Training pipeline</text>
+  <text x="138" y="575" class="body">Shuffled token sequences</text>
+  <text x="138" y="605" class="body">Context length: 512</text>
+  <rect x="138" y="628" width="100" height="28" rx="14" fill="#e7eef9"/><text x="188" y="647" text-anchor="middle" class="pill" fill="#49658e">BF16 / XPU</text>
+  <text x="252" y="647" class="small">Main run setup</text>
+
+  <!-- Shared training data branches to the target model and both draft models. -->
+  <path d="M410 596 H455 V462 H1085 V530 H1100" class="line"/>
+  <path d="M1085 530 V666 H1100" class="line"/>
+  <path d="M455 596 H495" class="lineBlue"/>
+
+  <rect x="505" y="480" width="520" height="235" rx="19" fill="url(#target)" stroke="#a9c3ee" stroke-width="1.8" filter="url(#shadow)"/>
+  <rect x="530" y="503" width="142" height="27" rx="13.5" fill="#4778c7"/><text x="601" y="522" text-anchor="middle" class="pill" fill="#ffffff">TARGET MODEL</text>
+  <text x="530" y="565" class="cardTitle">TinyGPT · 27.80M parameters</text>
+  <text x="530" y="600" class="body">8 decoder layers · d_model 512</text>
+  <text x="530" y="630" class="body">8 attention heads · max sequence 512</text>
+  <text x="530" y="660" class="small">RoPE · RMSNorm · SwiGLU</text>
+  <text x="530" y="691" class="small">16 micro-batch × 8 accumulation · 65,536 tokens/step</text>
+
+
+  <rect x="1110" y="475" width="350" height="112" rx="17" fill="url(#draft)" stroke="#cbb8ed" stroke-width="1.5"/>
+  <rect x="1132" y="494" width="83" height="24" rx="12" fill="#8765c0"/><text x="1173.5" y="511" text-anchor="middle" class="pill" fill="#fff">DRAFT 2L</text>
+  <text x="1132" y="548" class="cardTitle">2.66M parameters</text>
+  <text x="1132" y="572" class="small">2 decoder layers</text>
+
+  <rect x="1110" y="610" width="350" height="112" rx="17" fill="url(#draft)" stroke="#cbb8ed" stroke-width="1.5"/>
+  <rect x="1132" y="629" width="83" height="24" rx="12" fill="#8765c0"/><text x="1173.5" y="646" text-anchor="middle" class="pill" fill="#fff">DRAFT 4L</text>
+  <text x="1132" y="683" class="cardTitle">4.26M parameters</text>
+  <text x="1132" y="707" class="small">4 decoder layers</text>
+
+  <!-- INFERENCE / EVALUATION -->
+  <rect x="70" y="780" width="1460" height="475" rx="24" fill="#ffffff" stroke="#e0e7f1" filter="url(#shadow)"/>
+  <circle cx="108" cy="818" r="16" fill="#536f9e"/><text x="108" y="823" text-anchor="middle" class="number">3</text>
+  <text x="138" y="824" class="section">INFERENCE &amp; EVALUATION</text>
+  <text x="1480" y="823" text-anchor="end" class="small">Two generation paths, one evaluation and benchmarking suite</text>
+
+  <!-- Target model feeds both standard and speculative generation; drafts feed speculative generation. -->
+  <path d="M650 715 V850 H310 V878" class="lineBlue"/>
+  <path d="M880 715 V850 H795 V878" class="lineBlue"/>
+  <path d="M1460 530 H1490 V850 H830 V878" class="line"/>
+  <path d="M1460 666 H1490" stroke="#8290a6" stroke-width="3" fill="none"/>
+
+  <rect x="110" y="880" width="400" height="270" rx="19" fill="url(#infer)" stroke="#a8d7c3" stroke-width="1.7"/>
+  <rect x="136" y="906" width="155" height="27" rx="13.5" fill="#3d9274"/><text x="213.5" y="925" text-anchor="middle" class="pill" fill="#fff">STANDARD PATH</text>
+  <text x="136" y="970" class="cardTitle">Autoregressive generation</text>
+  <text x="136" y="1007" class="body">Target model predicts one next token</text>
+  <text x="136" y="1038" class="body">KV cache reuses prior keys and values</text>
+  <rect x="136" y="1070" width="225" height="38" rx="12" fill="#d5eee4"/><text x="248.5" y="1095" text-anchor="middle" class="pill" fill="#286d56">KV-CACHE INFERENCE</text>
+
+  <rect x="550" y="880" width="510" height="270" rx="19" fill="#f3efff" stroke="#cbb8ed" stroke-width="1.7"/>
+  <rect x="576" y="906" width="190" height="27" rx="13.5" fill="#8765c0"/><text x="671" y="925" text-anchor="middle" class="pill" fill="#fff">SPECULATIVE PATH</text>
+  <text x="576" y="970" class="cardTitle">Draft proposes · target verifies</text>
+  <text x="576" y="1007" class="body">Draft 2L / Draft 4L proposes token blocks</text>
+  <text x="576" y="1038" class="body">Target model verifies proposals in parallel</text>
+  <text x="576" y="1069" class="body">Accepted tokens reduce target decoding steps</text>
+  <rect x="576" y="1090" width="245" height="34" rx="11" fill="#e5dcf7"/><text x="698.5" y="1112" text-anchor="middle" class="pill" fill="#68459f">SPECULATIVE DECODING</text>
+
+  <path d="M1060 1015 H1090" class="lineBlue"/>
+
+  <rect x="1100" y="880" width="380" height="270" rx="19" fill="#f8faff" stroke="#d8e2f0" stroke-width="1.5"/>
+  <text x="1126" y="920" class="cardTitle">Evaluation &amp; benchmarks</text>
+  <text x="1126" y="958" class="body">Perplexity · generated samples</text>
+  <line x1="1126" y1="978" x2="1454" y2="978" stroke="#dce4ef"/>
+  <text x="1126" y="1008" class="small"><tspan font-weight="700" fill="#4778c7">E1</tspan>  KV-cache comparison</text>
+  <text x="1126" y="1036" class="small"><tspan font-weight="700" fill="#4778c7">E2</tspan>  Batch scaling</text>
+  <text x="1126" y="1064" class="small"><tspan font-weight="700" fill="#4778c7">E3</tspan>  Speculative decoding</text>
+  <text x="1126" y="1092" class="small"><tspan font-weight="700" fill="#4778c7">E4 / E6</tspan>  Theory comparison &amp; roofline analysis</text>
+  <rect x="1126" y="1110" width="250" height="25" rx="12.5" fill="#e7eef9"/><text x="1251" y="1127" text-anchor="middle" class="pill" fill="#49658e">JSON RESULTS + PLOTS</text>
+
+  <text x="80" y="1290" class="small">TinyGPT · decoder-only Transformer · PyTorch XPU · Intel Arc Graphics</text>
+  <text x="1520" y="1290" text-anchor="end" class="small">System overview · not to scale</text>
+</svg>
