@@ -1,0 +1,64 @@
+{
+  "source": "E1_xpu_20261112-030751.json",
+  "experiment": "E1",
+  "env": {
+    "device": "xpu",
+    "device_name": "Intel(R) Arc(TM) Graphics",
+    "dtype": "fp16",
+    "torch": "2.14.1+xpu",
+    "python": "3.13.15",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "cpu_count": 22,
+    "git_commit": "004dc8b",
+    "power_mode": "plugged-in/best-performance",
+    "timestamp": "2026-11-12T03:03:27",
+    "copy_bandwidth_gbs": 86.6
+  },
+  "rows": [
+    {
+      "batch": 1,
+      "new_tokens": 32,
+      "steps_per_s": 79.92637781408274,
+      "tokens_per_s": 79.92637781408274,
+      "bytes_per_step_MB": 56.116224,
+      "mbu_pct": 5.179176121159004,
+      "bandwidth_ceiling_tokens_per_s": 1543.225716684002
+    },
+    {
+      "batch": 1,
+      "new_tokens": 64,
+      "steps_per_s": 89.41965664752153,
+      "tokens_per_s": 89.41965664752153,
+      "bytes_per_step_MB": 56.378368,
+      "mbu_pct": 5.821402204281311,
+      "bandwidth_ceiling_tokens_per_s": 1536.0501389469096
+    },
+    {
+      "batch": 1,
+      "new_tokens": 128,
+      "steps_per_s": 92.5627929173674,
+      "tokens_per_s": 92.5627929173674,
+      "bytes_per_step_MB": 56.902656,
+      "mbu_pct": 6.082065547085675,
+      "bandwidth_ceiling_tokens_per_s": 1521.8973258471449
+    },
+    {
+      "batch": 1,
+      "new_tokens": 256,
+      "steps_per_s": 92.62795624972942,
+      "tokens_per_s": 92.62795624972942,
+      "bytes_per_step_MB": 57.951232,
+      "mbu_pct": 6.19850367472739,
+      "bandwidth_ceiling_tokens_per_s": 1494.359947343311
+    },
+    {
+      "batch": 1,
+      "new_tokens": 480,
+      "steps_per_s": 92.05398179748552,
+      "tokens_per_s": 92.05398179748552,
+      "bytes_per_step_MB": 59.78624,
+      "mbu_pct": 6.355151788337298,
+      "bandwidth_ceiling_tokens_per_s": 1448.493834032714
+    }
+  ]
+}
